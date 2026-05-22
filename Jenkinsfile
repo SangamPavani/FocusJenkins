@@ -7,46 +7,68 @@ pipeline {
         maven 'Maven'
     }
 
+    triggers {
+        pollSCM('H/2 * * * *')
+    }
+
     environment {
+
+        PATCH_FOLDER = 'G:/Patches'
         PROJECT_PATH = 'F:/FocusJenkins/SampleProject'
+
     }
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                echo 'Project Started'
-            }
-        }
+        stage('Check Patch Folder') {
 
-        stage('Environment Check') {
             steps {
-                dir("${PROJECT_PATH}") {
-                    bat 'java -version'
-                    bat 'mvn -version'
+
+                script {
+
+                    def patchExists = bat(
+                        script: """
+                        IF EXIST "%PATCH_FOLDER%\\*.exe" (
+                            EXIT /B 0
+                        ) ELSE (
+                            EXIT /B 1
+                        )
+                        """,
+                        returnStatus: true
+                    )
+
+                    if (patchExists != 0) {
+
+                        error "No patch found"
+
+                    }
                 }
             }
         }
 
-        stage('Clean Project') {
+        stage('Install Patch') {
+
             steps {
-                dir("${PROJECT_PATH}") {
-                    bat 'mvn clean'
-                }
+
+                bat """
+                cd /d %PATCH_FOLDER%
+
+                for %%f in (*.exe) do (
+                    start /wait "" "%%f"
+                )
+                """
             }
         }
 
         stage('Execute Automation') {
-            steps {
-                dir("${PROJECT_PATH}") {
-                    bat 'mvn clean test -Dsurefire.suiteXmlFiles=testng.xml'
-                }
-            }
-        }
 
-        stage('Generate Reports') {
             steps {
-                echo 'Generating Reports'
+
+                dir("${PROJECT_PATH}") {
+
+                    bat 'mvn clean test -Dsurefire.suiteXmlFiles=testng.xml'
+
+                }
             }
         }
     }
@@ -63,14 +85,6 @@ pipeline {
                 reportFiles: 'index.html',
                 reportName: 'Automation Report'
             ])
-        }
-
-        success {
-            echo 'Automation Execution Successful'
-        }
-
-        failure {
-            echo 'Automation Execution Failed'
         }
     }
 }

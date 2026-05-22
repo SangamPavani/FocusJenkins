@@ -1,0 +1,76 @@
+pipeline {
+
+    agent any
+
+    tools {
+        jdk 'JDK'
+        maven 'Maven'
+    }
+
+    environment {
+        PROJECT_PATH = 'F:/FocusJenkins/SampleProject'
+    }
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                echo 'Project Started'
+            }
+        }
+
+        stage('Environment Check') {
+            steps {
+                dir("${PROJECT_PATH}") {
+                    bat 'java -version'
+                    bat 'mvn -version'
+                }
+            }
+        }
+
+        stage('Clean Project') {
+            steps {
+                dir("${PROJECT_PATH}") {
+                    bat 'mvn clean'
+                }
+            }
+        }
+
+        stage('Execute Automation') {
+            steps {
+                dir("${PROJECT_PATH}") {
+                    bat 'mvn clean test -Dsurefire.suiteXmlFiles=testng.xml'
+                }
+            }
+        }
+
+        stage('Generate Reports') {
+            steps {
+                echo 'Generating Reports'
+            }
+        }
+    }
+
+    post {
+
+        always {
+
+            publishHTML([
+                allowMissing: true,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: 'test-output',
+                reportFiles: 'index.html',
+                reportName: 'Automation Report'
+            ])
+        }
+
+        success {
+            echo 'Automation Execution Successful'
+        }
+
+        failure {
+            echo 'Automation Execution Failed'
+        }
+    }
+}
