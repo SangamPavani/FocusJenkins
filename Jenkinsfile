@@ -8,7 +8,7 @@ pipeline {
     }
 
     environment {
-        PROJECT_PATH = 'F:\FocusJenkins\SampleProject'
+        PROJECT_PATH = 'F:/FocusJenkins/SampleProject'
     }
 
     stages {
