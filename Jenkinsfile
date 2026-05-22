@@ -48,17 +48,36 @@ pipeline {
 
         stage('Install Patch') {
 
-            steps {
+    steps {
 
-                bat """
-                cd /d %PATCH_FOLDER%
+        bat '''
+        echo =========================
+        echo CHECKING PATCH FOLDER
+        echo =========================
 
-                for %%f in (*.exe) do (
-                    start /wait "" "%%f"
-                )
-                """
-            }
-        }
+        cd /d G:\\Patches
+
+        dir
+
+        echo =========================
+        echo INSTALLING PATCHES
+        echo =========================
+
+        for %%f in ("*.exe") do (
+
+            echo Running: %%f
+
+            start /wait "" "%%f"
+
+            echo Completed: %%f
+        )
+
+        echo =========================
+        echo PATCH INSTALL COMPLETED
+        echo =========================
+        '''
+    }
+}
 
         stage('Execute Automation') {
 
