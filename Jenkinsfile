@@ -39,7 +39,7 @@ pipeline {
         stage('Execute Automation') {
             steps {
                 dir("${PROJECT_PATH}") {
-                    bat 'mvn test -DsuiteXmlFile=testng.xml'
+                    bat 'mvn clean test -Dsurefire.suiteXmlFiles=testng.xml'
                 }
             }
         }
