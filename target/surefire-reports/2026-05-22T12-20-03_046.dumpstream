@@ -1,0 +1,5 @@
+# Created at 2026-05-22T12:20:03.616
+Boot Manifest-JAR contains absolute paths in classpath 'F:\FocusJenkins\SampleProject\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+
