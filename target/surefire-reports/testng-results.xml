@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-05-25T15:35:13 IST" name="Suite" finished-at="2026-05-25T15:38:09 IST" duration-ms="175957">
+  <suite started-at="2026-05-25T15:53:27 IST" name="Suite" finished-at="2026-05-25T15:56:24 IST" duration-ms="176473">
     <groups>
     </groups>
-    <test started-at="2026-05-25T15:35:13 IST" name="Test" finished-at="2026-05-25T15:38:09 IST" duration-ms="175957">
+    <test started-at="2026-05-25T15:53:27 IST" name="Test" finished-at="2026-05-25T15:56:24 IST" duration-ms="176473">
       <class name="com.focus.testcases.LoginPageTest">
-        <test-method is-config="true" signature="beforeMethodExecution(java.lang.reflect.Method)[pri:0, instance:com.focus.testcases.LoginPageTest@223aa2f7]" started-at="2026-05-25T15:35:17 IST" name="beforeMethodExecution" finished-at="2026-05-25T15:35:17 IST" duration-ms="2" status="PASS">
+        <test-method is-config="true" signature="beforeMethodExecution(java.lang.reflect.Method)[pri:0, instance:com.focus.testcases.LoginPageTest@223aa2f7]" started-at="2026-05-25T15:53:31 IST" name="beforeMethodExecution" finished-at="2026-05-25T15:53:31 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,11 +18,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethodExecution -->
-        <test-method signature="verifyAvaibilityOfFieldsInLoginScreen()[pri:3, instance:com.focus.testcases.LoginPageTest@223aa2f7]" started-at="2026-05-25T15:35:17 IST" name="verifyAvaibilityOfFieldsInLoginScreen" finished-at="2026-05-25T15:35:18 IST" duration-ms="1110" status="PASS">
+        <test-method signature="verifyAvaibilityOfFieldsInLoginScreen()[pri:3, instance:com.focus.testcases.LoginPageTest@223aa2f7]" started-at="2026-05-25T15:53:31 IST" name="verifyAvaibilityOfFieldsInLoginScreen" finished-at="2026-05-25T15:53:32 IST" duration-ms="1072" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyAvaibilityOfFieldsInLoginScreen -->
-        <test-method is-config="true" signature="afterMethodExecution(org.testng.ITestResult)[pri:0, instance:com.focus.testcases.LoginPageTest@223aa2f7]" started-at="2026-05-25T15:35:18 IST" name="afterMethodExecution" finished-at="2026-05-25T15:35:18 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="afterMethodExecution(org.testng.ITestResult)[pri:0, instance:com.focus.testcases.LoginPageTest@223aa2f7]" started-at="2026-05-25T15:53:32 IST" name="afterMethodExecution" finished-at="2026-05-25T15:53:32 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -33,7 +33,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethodExecution -->
-        <test-method is-config="true" signature="beforeMethodExecution(java.lang.reflect.Method)[pri:0, instance:com.focus.testcases.LoginPageTest@223aa2f7]" started-at="2026-05-25T15:35:18 IST" name="beforeMethodExecution" finished-at="2026-05-25T15:35:18 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="beforeMethodExecution(java.lang.reflect.Method)[pri:0, instance:com.focus.testcases.LoginPageTest@223aa2f7]" started-at="2026-05-25T15:53:32 IST" name="beforeMethodExecution" finished-at="2026-05-25T15:53:32 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -44,11 +44,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethodExecution -->
-        <test-method signature="verifyCompanyNameInCompanyListOfLoginScreen()[pri:4, instance:com.focus.testcases.LoginPageTest@223aa2f7]" started-at="2026-05-25T15:35:18 IST" name="verifyCompanyNameInCompanyListOfLoginScreen" finished-at="2026-05-25T15:35:18 IST" duration-ms="50" status="PASS">
+        <test-method signature="verifyCompanyNameInCompanyListOfLoginScreen()[pri:4, instance:com.focus.testcases.LoginPageTest@223aa2f7]" started-at="2026-05-25T15:53:32 IST" name="verifyCompanyNameInCompanyListOfLoginScreen" finished-at="2026-05-25T15:53:32 IST" duration-ms="60" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyCompanyNameInCompanyListOfLoginScreen -->
-        <test-method is-config="true" signature="afterMethodExecution(org.testng.ITestResult)[pri:0, instance:com.focus.testcases.LoginPageTest@223aa2f7]" started-at="2026-05-25T15:35:18 IST" name="afterMethodExecution" finished-at="2026-05-25T15:35:18 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="afterMethodExecution(org.testng.ITestResult)[pri:0, instance:com.focus.testcases.LoginPageTest@223aa2f7]" started-at="2026-05-25T15:53:32 IST" name="afterMethodExecution" finished-at="2026-05-25T15:53:32 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -59,7 +59,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethodExecution -->
-        <test-method is-config="true" signature="beforeMethodExecution(java.lang.reflect.Method)[pri:0, instance:com.focus.testcases.LoginPageTest@223aa2f7]" started-at="2026-05-25T15:35:18 IST" name="beforeMethodExecution" finished-at="2026-05-25T15:35:18 IST" duration-ms="1" status="PASS">
+        <test-method signature="verifySignIn()[pri:5, instance:com.focus.testcases.LoginPageTest@223aa2f7]" started-at="2026-05-25T15:53:32 IST" name="verifySignIn" finished-at="2026-05-25T15:54:02 IST" duration-ms="30110" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifySignIn -->
+        <test-method is-config="true" signature="beforeMethodExecution(java.lang.reflect.Method)[pri:0, instance:com.focus.testcases.LoginPageTest@223aa2f7]" started-at="2026-05-25T15:53:32 IST" name="beforeMethodExecution" finished-at="2026-05-25T15:53:32 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -70,11 +74,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethodExecution -->
-        <test-method signature="verifySignIn()[pri:5, instance:com.focus.testcases.LoginPageTest@223aa2f7]" started-at="2026-05-25T15:35:18 IST" name="verifySignIn" finished-at="2026-05-25T15:35:49 IST" duration-ms="30582" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifySignIn -->
-        <test-method is-config="true" signature="afterMethodExecution(org.testng.ITestResult)[pri:0, instance:com.focus.testcases.LoginPageTest@223aa2f7]" started-at="2026-05-25T15:35:49 IST" name="afterMethodExecution" finished-at="2026-05-25T15:35:49 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="afterMethodExecution(org.testng.ITestResult)[pri:0, instance:com.focus.testcases.LoginPageTest@223aa2f7]" started-at="2026-05-25T15:54:02 IST" name="afterMethodExecution" finished-at="2026-05-25T15:54:02 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -85,7 +85,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethodExecution -->
-        <test-method is-config="true" signature="beforeMethodExecution(java.lang.reflect.Method)[pri:0, instance:com.focus.testcases.LoginPageTest@223aa2f7]" started-at="2026-05-25T15:35:49 IST" name="beforeMethodExecution" finished-at="2026-05-25T15:35:49 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="beforeMethodExecution(java.lang.reflect.Method)[pri:0, instance:com.focus.testcases.LoginPageTest@223aa2f7]" started-at="2026-05-25T15:54:02 IST" name="beforeMethodExecution" finished-at="2026-05-25T15:54:02 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -96,11 +96,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethodExecution -->
-        <test-method signature="checkRestoreAutomationCompany()[pri:6, instance:com.focus.testcases.LoginPageTest@223aa2f7]" started-at="2026-05-25T15:35:49 IST" name="checkRestoreAutomationCompany" finished-at="2026-05-25T15:38:08 IST" duration-ms="139468" status="PASS">
+        <test-method signature="checkRestoreAutomationCompany()[pri:6, instance:com.focus.testcases.LoginPageTest@223aa2f7]" started-at="2026-05-25T15:54:02 IST" name="checkRestoreAutomationCompany" finished-at="2026-05-25T15:56:23 IST" duration-ms="140522" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkRestoreAutomationCompany -->
-        <test-method is-config="true" signature="afterMethodExecution(org.testng.ITestResult)[pri:0, instance:com.focus.testcases.LoginPageTest@223aa2f7]" started-at="2026-05-25T15:38:08 IST" name="afterMethodExecution" finished-at="2026-05-25T15:38:08 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="afterMethodExecution(org.testng.ITestResult)[pri:0, instance:com.focus.testcases.LoginPageTest@223aa2f7]" started-at="2026-05-25T15:56:23 IST" name="afterMethodExecution" finished-at="2026-05-25T15:56:23 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -113,7 +113,7 @@
         </test-method> <!-- afterMethodExecution -->
       </class> <!-- com.focus.testcases.LoginPageTest -->
       <class name="com.focus.testcases.URLBrowserTest">
-        <test-method is-config="true" signature="openBrowser(java.lang.String)[pri:0, instance:com.focus.testcases.URLBrowserTest@5f9b2141]" started-at="2026-05-25T15:35:09 IST" name="openBrowser" finished-at="2026-05-25T15:35:13 IST" duration-ms="4073" status="PASS">
+        <test-method is-config="true" signature="openBrowser(java.lang.String)[pri:0, instance:com.focus.testcases.URLBrowserTest@5f9b2141]" started-at="2026-05-25T15:53:22 IST" name="openBrowser" finished-at="2026-05-25T15:53:27 IST" duration-ms="4883" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -124,11 +124,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openBrowser -->
-        <test-method is-config="true" signature="intialiseReports()[pri:0, instance:com.focus.testcases.URLBrowserTest@5f9b2141]" started-at="2026-05-25T15:35:13 IST" name="intialiseReports" finished-at="2026-05-25T15:35:13 IST" duration-ms="457" status="PASS">
+        <test-method is-config="true" signature="intialiseReports()[pri:0, instance:com.focus.testcases.URLBrowserTest@5f9b2141]" started-at="2026-05-25T15:53:27 IST" name="intialiseReports" finished-at="2026-05-25T15:53:28 IST" duration-ms="336" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- intialiseReports -->
-        <test-method is-config="true" signature="beforeMethodExecution(java.lang.reflect.Method)[pri:0, instance:com.focus.testcases.URLBrowserTest@5f9b2141]" started-at="2026-05-25T15:35:13 IST" name="beforeMethodExecution" finished-at="2026-05-25T15:35:13 IST" duration-ms="7" status="PASS">
+        <test-method is-config="true" signature="beforeMethodExecution(java.lang.reflect.Method)[pri:0, instance:com.focus.testcases.URLBrowserTest@5f9b2141]" started-at="2026-05-25T15:53:28 IST" name="beforeMethodExecution" finished-at="2026-05-25T15:53:28 IST" duration-ms="9" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -139,11 +139,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethodExecution -->
-        <test-method signature="verifyBrowserOpen()[pri:1, instance:com.focus.testcases.URLBrowserTest@5f9b2141]" started-at="2026-05-25T15:35:13 IST" name="verifyBrowserOpen" finished-at="2026-05-25T15:35:13 IST" duration-ms="19" status="PASS">
+        <test-method signature="verifyBrowserOpen()[pri:1, instance:com.focus.testcases.URLBrowserTest@5f9b2141]" started-at="2026-05-25T15:53:28 IST" name="verifyBrowserOpen" finished-at="2026-05-25T15:53:28 IST" duration-ms="59" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyBrowserOpen -->
-        <test-method is-config="true" signature="afterMethodExecution(org.testng.ITestResult)[pri:0, instance:com.focus.testcases.URLBrowserTest@5f9b2141]" started-at="2026-05-25T15:35:13 IST" name="afterMethodExecution" finished-at="2026-05-25T15:35:13 IST" duration-ms="10" status="PASS">
+        <test-method is-config="true" signature="afterMethodExecution(org.testng.ITestResult)[pri:0, instance:com.focus.testcases.URLBrowserTest@5f9b2141]" started-at="2026-05-25T15:53:28 IST" name="afterMethodExecution" finished-at="2026-05-25T15:53:28 IST" duration-ms="12" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -154,7 +154,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethodExecution -->
-        <test-method is-config="true" signature="beforeMethodExecution(java.lang.reflect.Method)[pri:0, instance:com.focus.testcases.URLBrowserTest@5f9b2141]" started-at="2026-05-25T15:35:13 IST" name="beforeMethodExecution" finished-at="2026-05-25T15:35:13 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="beforeMethodExecution(java.lang.reflect.Method)[pri:0, instance:com.focus.testcases.URLBrowserTest@5f9b2141]" started-at="2026-05-25T15:53:28 IST" name="beforeMethodExecution" finished-at="2026-05-25T15:53:28 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -165,11 +165,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethodExecution -->
-        <test-method signature="verifyLoginScreenTitleByInputUrl()[pri:2, instance:com.focus.testcases.URLBrowserTest@5f9b2141]" started-at="2026-05-25T15:35:13 IST" name="verifyLoginScreenTitleByInputUrl" finished-at="2026-05-25T15:35:17 IST" duration-ms="3556" status="PASS">
+        <test-method signature="verifyLoginScreenTitleByInputUrl()[pri:2, instance:com.focus.testcases.URLBrowserTest@5f9b2141]" started-at="2026-05-25T15:53:28 IST" name="verifyLoginScreenTitleByInputUrl" finished-at="2026-05-25T15:53:31 IST" duration-ms="3437" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyLoginScreenTitleByInputUrl -->
-        <test-method is-config="true" signature="afterMethodExecution(org.testng.ITestResult)[pri:0, instance:com.focus.testcases.URLBrowserTest@5f9b2141]" started-at="2026-05-25T15:35:17 IST" name="afterMethodExecution" finished-at="2026-05-25T15:35:17 IST" duration-ms="2" status="PASS">
+        <test-method is-config="true" signature="afterMethodExecution(org.testng.ITestResult)[pri:0, instance:com.focus.testcases.URLBrowserTest@5f9b2141]" started-at="2026-05-25T15:53:31 IST" name="afterMethodExecution" finished-at="2026-05-25T15:53:31 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -180,11 +180,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethodExecution -->
-        <test-method is-config="true" signature="generateReports()[pri:0, instance:com.focus.testcases.URLBrowserTest@5f9b2141]" started-at="2026-05-25T15:38:08 IST" name="generateReports" finished-at="2026-05-25T15:38:09 IST" duration-ms="615" status="PASS">
+        <test-method is-config="true" signature="generateReports()[pri:0, instance:com.focus.testcases.URLBrowserTest@5f9b2141]" started-at="2026-05-25T15:56:23 IST" name="generateReports" finished-at="2026-05-25T15:56:24 IST" duration-ms="776" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateReports -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:com.focus.testcases.URLBrowserTest@5f9b2141]" started-at="2026-05-25T15:38:09 IST" name="closeBrowser" finished-at="2026-05-25T15:38:09 IST" duration-ms="375" status="PASS">
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:com.focus.testcases.URLBrowserTest@5f9b2141]" started-at="2026-05-25T15:56:24 IST" name="closeBrowser" finished-at="2026-05-25T15:56:26 IST" duration-ms="1751" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
