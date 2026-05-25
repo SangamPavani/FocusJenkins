@@ -61,10 +61,14 @@ pipeline {
                 allowMissing: false,
                 alwaysLinkToLastBuild: true,
                 keepAll: true,
-                reportDir: 'test-output',
-                reportFiles: 'index.html',
+                reportDir: 'reports',
+                reportFiles: '*.html',
                 reportName: 'Automation Report'
             ])
+            
+            archiveArtifacts artifacts: 'reports/**/*.*',
+            allowEmptyArchive: true
+
         }
 }
         success {

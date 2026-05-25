@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT" verbose="0">
+  <test thread-count="5" name="Test(failed)" verbose="0">
+    <classes>
+      <class name="com.focus.testcases.URLBrowserTest">
+        <methods>
+          <include name="intialiseReports"/>
+          <include name="closeBrowser"/>
+          <include name="beforeMethodExecution"/>
+          <include name="verifyBrowserOpen"/>
+          <include name="verifyLoginScreenTitleByInputUrl"/>
+          <include name="generateReports"/>
+          <include name="openBrowser"/>
+          <include name="afterMethodExecution"/>
+        </methods>
+      </class> <!-- com.focus.testcases.URLBrowserTest -->
+      <class name="com.focus.testcases.LoginPageTest">
+        <methods>
+          <include name="intialiseReports"/>
+          <include name="closeBrowser"/>
+          <include name="verifyCompanyNameInCompanyListOfLoginScreen"/>
+          <include name="beforeMethodExecution"/>
+          <include name="verifySignIn"/>
+          <include name="checkRestoreAutomationCompany"/>
+          <include name="generateReports"/>
+          <include name="openBrowser"/>
+          <include name="afterMethodExecution"/>
+          <include name="verifyAvaibilityOfFieldsInLoginScreen"/>
+        </methods>
+      </class> <!-- com.focus.testcases.LoginPageTest -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
