@@ -70,8 +70,8 @@ allure([
                 reportName: 'Automation Report'
             ])
             
-            archiveArtifacts artifacts: 'reports/**/*.*',
-            allowEmptyArchive: true
+           // archiveArtifacts artifacts: 'reports/**/*.*',
+         //   allowEmptyArchive: true
 
         }
 }
