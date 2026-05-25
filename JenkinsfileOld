@@ -55,7 +55,11 @@ pipeline {
 
         always {
 			        dir("${PROJECT_PATH}") {
-
+allure([
+    includeProperties: false,
+    jdk: '',
+    results: [[path: 'target/allure-results']]
+])
 
             publishHTML([
                 allowMissing: false,
