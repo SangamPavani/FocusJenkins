@@ -3,12 +3,16 @@ pipeline {
     agent any
 
     tools {
+
         jdk 'JDK'
         maven 'Maven'
+
     }
 
     triggers {
+
         pollSCM('H/2 * * * *')
+
     }
 
     environment {
@@ -20,6 +24,21 @@ pipeline {
 
     stages {
 
+        stage('Clean Old Reports') {
+
+            steps {
+
+                dir("${PROJECT_PATH}") {
+
+                    bat '''
+                    if exist test-output rmdir /s /q test-output
+                    if exist target rmdir /s /q target
+                    '''
+
+                }
+            }
+        }
+
         stage('Check Patch Folder') {
 
             steps {
@@ -27,6 +46,7 @@ pipeline {
                 script {
 
                     def patchExists = bat(
+
                         script: """
                         IF EXIST "%PATCH_FOLDER%\\*.exe" (
                             EXIT /B 0
@@ -34,7 +54,9 @@ pipeline {
                             EXIT /B 1
                         )
                         """,
+
                         returnStatus: true
+
                     )
 
                     if (patchExists != 0) {
@@ -46,35 +68,54 @@ pipeline {
             }
         }
 
-        stage('Install Patch') {
+       stage('Install Latest Patch') {
 
     steps {
 
         bat '''
+
         echo =========================
         echo CHECKING PATCH FOLDER
         echo =========================
 
         cd /d G:\\Patches
 
-        dir
+        dir *.exe /o-d
 
         echo =========================
-        echo INSTALLING PATCHES
+        echo STARTING AUTOIT HANDLER
         echo =========================
 
-        for %%f in ("*.exe") do (
+        start "" PatchHandler.exe
 
-            echo Running: %%f
+        timeout /t 5
 
-            start /wait "" "%%f"
+        echo =========================
+        echo INSTALLING LATEST PATCH
+        echo =========================
 
-            echo Completed: %%f
+        for /f "delims=" %%f in ('dir *.exe /b /o-d') do (
+
+            if /I NOT "%%f"=="PatchHandler.exe" (
+
+                echo Running Patch: %%f
+
+                start /wait "" "%%f"
+
+                echo Patch Completed: %%f
+
+                move "%%f" Completed\\
+
+                goto :done
+            )
         )
 
+        :done
+
         echo =========================
-        echo PATCH INSTALL COMPLETED
+        echo PATCH INSTALLATION FINISHED
         echo =========================
+
         '''
     }
 }
@@ -85,7 +126,11 @@ pipeline {
 
                 dir("${PROJECT_PATH}") {
 
-                    bat 'mvn clean test -Dsurefire.suiteXmlFiles=testng.xml'
+                    bat '''
+
+                    mvn clean test -Dsurefire.suiteXmlFiles=testng.xml
+
+                    '''
 
                 }
             }
@@ -97,12 +142,14 @@ pipeline {
         always {
 
             publishHTML([
-                allowMissing: true,
+
+                allowMissing: false,
                 alwaysLinkToLastBuild: true,
                 keepAll: true,
                 reportDir: 'test-output',
                 reportFiles: 'index.html',
                 reportName: 'Automation Report'
+
             ])
         }
     }
