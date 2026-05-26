@@ -11,7 +11,7 @@ pipeline {
 
     triggers {
 
-        pollSCM('H/2 * * * *')
+        cron('*/2 * * * *')
 
     }
 
@@ -39,87 +39,150 @@ pipeline {
             }
         }
 
-        stage('Check Patch Folder') {
+      stage('Check Patch Folder') {
+
+    steps {
+
+        script {
+
+            def patchExists = bat(
+
+                script: '''
+                @echo off
+
+                dir G:\\Patches\\*.exe /b | findstr /v "PatchHandler.exe" >nul
+
+                if %errorlevel%==0 (
+                    exit /b 0
+                ) else (
+                    exit /b 1
+                )
+                ''',
+
+                returnStatus: true
+
+            )
+
+            if (patchExists != 0) {
+
+                currentBuild.result = 'NOT_BUILT'
+
+                error "No patch found"
+
+            }
+        }
+    }
+}
+
+        stage('Clear Temp Cache') {
 
             steps {
 
-                script {
+                bat '''
 
-                    def patchExists = bat(
+                echo =========================
+                echo CLEARING TEMP CACHE
+                echo =========================
 
-                        script: """
-                        IF EXIST "%PATCH_FOLDER%\\*.exe" (
-                            EXIT /B 0
-                        ) ELSE (
-                            EXIT /B 1
-                        )
-                        """,
+                del /s /f /q "%TEMP%\\*.*" 2>nul
 
-                        returnStatus: true
+                for /d %%x in ("%TEMP%\\*") do (
+                    rd /s /q "%%x" 2>nul
+                )
 
-                    )
+                del /s /f /q "%TMP%\\*.*" 2>nul
 
-                    if (patchExists != 0) {
+                for /d %%x in ("%TMP%\\*") do (
+                    rd /s /q "%%x" 2>nul
+                )
 
-                        error "No patch found"
+                echo TEMP Cache Cleared
 
-                    }
-                }
+                '''
             }
         }
-
-       stage('Install Latest Patch') {
+        
+        stage('Stop IIS') {
 
     steps {
 
         bat '''
 
         echo =========================
-        echo CHECKING PATCH FOLDER
+        echo STOPPING IIS
         echo =========================
 
-        cd /d G:\\Patches
+        iisreset /stop
 
-        dir *.exe /o-d
+        taskkill /F /IM w3wp.exe 2>nul
 
-        echo =========================
-        echo STARTING AUTOIT HANDLER
-        echo =========================
-
-        start "" PatchHandler.exe
-
-        timeout /t 5
-
-        echo =========================
-        echo INSTALLING LATEST PATCH
-        echo =========================
-
-        for /f "delims=" %%f in ('dir *.exe /b /o-d') do (
-
-            if /I NOT "%%f"=="PatchHandler.exe" (
-
-                echo Running Patch: %%f
-
-                start /wait "" "%%f"
-
-                echo Patch Completed: %%f
-
-                move "%%f" Completed\\
-
-                goto :done
-            )
-        )
-
-        :done
-
-        echo =========================
-        echo PATCH INSTALLATION FINISHED
-        echo =========================
+        echo IIS STOPPED SUCCESSFULLY
 
         '''
     }
 }
 
+      stage('Install Latest Patch') {
+
+    steps {
+
+        script {
+
+            def latestPatch = bat(
+
+                script: '''
+                @echo off
+
+                for /f "delims=" %%f in ('dir G:\\Patches\\*.exe /b /o-d /t:c ^| findstr /v "PatchHandler.exe"') do (
+                    echo %%f
+                    goto :done
+                )
+
+                :done
+                ''',
+
+                returnStdout: true
+
+            ).trim()
+
+            env.PATCH_NAME = latestPatch
+
+            bat """
+
+            cd /d G:\\Patches
+
+            echo =========================
+            echo INSTALLING LATEST PATCH
+            echo =========================
+
+            echo Executing Patch : ${env.PATCH_NAME}
+
+            start /wait "" "${env.PATCH_NAME}"
+
+            echo PATCH INSTALLATION COMPLETED
+
+            """
+        }
+    }
+}
+
+       stage('Start IIS') {
+
+    steps {
+
+        bat '''
+
+        echo =========================
+        echo STARTING IIS
+        echo =========================
+
+        iisreset /start
+
+        echo IIS STARTED SUCCESSFULLY
+
+        '''
+    }
+}
         stage('Execute Automation') {
 
             steps {
@@ -135,22 +198,47 @@ pipeline {
                 }
             }
         }
+
+        stage('Move Installed Patch') {
+
+    steps {
+
+        bat """
+
+        if not exist "G:\\Patches\\Completed" (
+            mkdir "G:\\Patches\\Completed"
+        )
+
+        move "G:\\Patches\\${PATCH_NAME}" "G:\\Patches\\Completed\\"
+
+        """
+
+    }
+}
+
     }
 
     post {
 
         always {
 
-            publishHTML([
+            dir("${PROJECT_PATH}") {
 
-                allowMissing: false,
-                alwaysLinkToLastBuild: true,
-                keepAll: true,
-                reportDir: 'test-output',
-                reportFiles: 'index.html',
-                reportName: 'Automation Report'
+                publishHTML([
 
-            ])
+                    allowMissing: true,
+                    alwaysLinkToLastBuild: true,
+                    keepAll: true,
+                    reportDir: 'test-output',
+                    reportFiles: 'index.html',
+                    reportName: 'Automation Report'
+
+                ])
+
+                archiveArtifacts artifacts: 'Screenshots/*.png',
+                allowEmptyArchive: true
+
+            }
         }
     }
 }
